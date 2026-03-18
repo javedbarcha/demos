@@ -54,6 +54,46 @@
       font-size: 0.9rem;
       color: #94a3b8;
     }
+
+    /* Collaboration styling */
+    .collab-link {
+      display:flex;
+      align-items:center;
+      gap:15px;
+      text-decoration:none;
+      color:inherit;
+      padding:10px 15px;
+      border-radius:10px;
+      transition:all 0.25s ease;
+    }
+    .collab-link:hover {
+      background: rgba(255,255,255,0.05);
+      transform: translateY(-2px);
+    }
+    .collab-link img {
+      width:60px;
+      height:auto;
+      background:white;
+      padding:5px;
+      border-radius:6px;
+      transition:transform 0.25s ease;
+    }
+    .collab-link:hover img {
+      transform: scale(1.1);
+    }
+    .collab-text {
+      margin:0;
+      font-weight:bold;
+    }
+    .collab-badge {
+      display:inline-block;
+      margin-left:10px;
+      padding:3px 8px;
+      font-size:0.7rem;
+      background:#22c55e;
+      color:#022c22;
+      border-radius:999px;
+    }
   </style>
 </head>
 <body>
@@ -63,12 +103,15 @@
   <p>Interactive Simulations & 3D Systems</p>
 </header>
 
+<!-- Rubik Project -->
 <section class="project">
-  <h2>Rubik's Cube 3D</h2>
+  <h2>Rubik's Cube 3D – Digital Twin Simulation</h2>
 
   <div class="gallery">
-    <img src="rubik1.png" alt="Rubik Screenshot">
-    <img src="rubik2.png" alt="Rubik Screenshot">
+    <img src="rubik1.png">
+    <img src="rubik2.png">
+    <img src="rubik3.png">
+    <img src="rubik4.png">
 
     <video controls>
       <source src="RubikCube3D.mp4" type="video/mp4">
@@ -77,23 +120,44 @@
 
   <div class="description">
     <p>
-      A real-time 3D simulation of a Rubik's Cube with interactive controls and smooth rotation mechanics.
-      The system models cube state transformations and supports algorithm-based solving logic.
+      Developed a 3D digital twin simulation replicating real Rubik’s Cube mechanics (2×2, 3×3, 4×4).
     </p>
+
+    <h3>Technical Implementation</h3>
     <ul>
-      <li>Developed using Unity3D and C#</li>
-      <li>Implements cube rotation logic and state tracking</li>
-      <li>Optimized for real-time interaction</li>
+      <li>Raycasting (Screen → World space)</li>
+      <li>Drag vector + surface normal interaction</li>
+      <li>Cube state tracking</li>
+      <li>Color-based solve detection</li>
     </ul>
+
+    <h3>Impact</h3>
+    <ul>
+      <li>~700,000 downloads</li>
+      <li>Published on Google Play</li>
+    </ul>
+
+    <h3>Industry Collaboration</h3>
+    <a href="https://rounds.com/" target="_blank" class="collab-link">
+      <img src="rounds_logo.png">
+      <p class="collab-text">
+        Rounds Technology (Rounds.com)
+        <span class="collab-badge">Industry Partner</span>
+      </p>
+    </a>
   </div>
 </section>
 
+<!-- Climbing Project -->
 <section class="project">
-  <h2>Climbing 3D</h2>
+  <h2>Physics-Based Character Climbing System</h2>
 
   <div class="gallery">
-    <img src="climb1.png" alt="Climbing Screenshot">
-    <img src="climb2.png" alt="Climbing Screenshot">
+    <img src="climb1.png">
+    <img src="climb2.png">
+    <img src="climb3.png">
+    <img src="climb4.png">
+    <img src="climb5.png">
 
     <video controls>
       <source src="Climb3D.mp4" type="video/mp4">
@@ -101,20 +165,17 @@
   </div>
 
   <div class="description">
-    <p>
-      A physics-based 3D climbing simulation that demonstrates character movement across uneven terrain.
-      The system uses raycasting and environmental interaction to dynamically adjust player positioning.
-    </p>
+    <h3>Key Features</h3>
     <ul>
-      <li>Built with Unity3D and physics-based mechanics</li>
-      <li>Implements cliff detection and surface alignment</li>
-      <li>Uses rigidbody-based movement and constraints</li>
+      <li>Raycasting-based environment detection</li>
+      <li>Dynamic surface alignment</li>
+      <li>Rigidbody + animation integration</li>
     </ul>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Your Name | GitHub Portfolio</p>
+  <p>© 2026 Javed Ur Rehman | Interactive Simulation Portfolio</p>
 </footer>
 
 </body>
