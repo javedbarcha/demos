@@ -38,10 +38,16 @@
       gap: 15px;
       margin-top: 20px;
     }
-    .gallery img, .gallery video {
+    .gallery img {
       width: 100%;
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+    .gallery video {
+      grid-column: 1 / -1;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
     }
     .description {
       margin-top: 20px;
@@ -93,9 +99,39 @@
       border-radius:999px;
       vertical-align:middle;
     }
-  </style>
+    /* Lightbox */
+  .lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  .lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
+  }
+  .lightbox img.zoomed {
+    transform: scale(1.5);
+    cursor: zoom-out;
+  }
+  .lightbox.active {
+    display: flex;
+  }
+</style>
 </head>
 <body>
+
+<div class="lightbox" id="lightbox">
+  <img id="lightbox-img" src="">
+</div>
 
 <header>
   <h1>Project Demo Portfolio</h1>
@@ -106,10 +142,10 @@
   <h2>Rubik's Cube 3D – Digital Twin Simulation (Independent Project – Unity3D)</h2>
 
   <div class="gallery">
-    <img src="rubik1.png">
-    <img src="rubik2.png">
-    <img src="rubik3.png">
-    <img src="rubik4.png">
+    <img src="rubik1.png" onclick="openLightbox(this.src)">
+    <img src="rubik2.png" onclick="openLightbox(this.src)">
+    <img src="rubik3.png" onclick="openLightbox(this.src)">
+    <img src="rubik4.png" onclick="openLightbox(this.src)">
     <video controls>
       <source src="RubikCube3D.mp4" type="video/mp4">
     </video>
@@ -165,11 +201,11 @@
   <h2>Physics-Based Character Climbing System (Independent Research Project – Unity3D)</h2>
 
   <div class="gallery">
-    <img src="climb1.png">
-    <img src="climb2.png">
-    <img src="climb3.png">
-    <img src="climb4.png">
-    <img src="climb5.png">
+    <img src="climb1.png" onclick="openLightbox(this.src)">
+    <img src="climb2.png" onclick="openLightbox(this.src)">
+    <img src="climb3.png" onclick="openLightbox(this.src)">
+    <img src="climb4.png" onclick="openLightbox(this.src)">
+    <img src="climb5.png" onclick="openLightbox(this.src)">
     <video controls>
       <source src="Climb3D.mp4" type="video/mp4">
     </video>
@@ -214,6 +250,25 @@
 <footer>
   <p>© 2026 Javed Ur Rehman | Interactive Simulation Portfolio</p>
 </footer>
+
+<script>
+function openLightbox(src) {
+  const lightbox = document.getElementById('lightbox');
+  const img = document.getElementById('lightbox-img');
+  img.src = src;
+  img.classList.remove('zoomed');
+  lightbox.classList.add('active');
+}
+
+document.getElementById('lightbox-img').addEventListener('click', function(e) {
+  e.stopPropagation();
+  this.classList.toggle('zoomed');
+});
+
+document.getElementById('lightbox').addEventListener('click', function() {
+  this.classList.remove('active');
+});
+</script>
 
 </body>
 </html>
