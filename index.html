@@ -7,30 +7,44 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(circle at top, #020617, #000000 80%);
       color: #e2e8f0;
     }
     header {
       text-align: center;
-      padding: 40px 20px;
-      background: linear-gradient(135deg, #1e293b, #020617);
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #020617, #020617 60%, #0ea5e9 120%);
+      box-shadow: 0 0 40px rgba(14,165,233,0.2);
     }
     header h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px rgba(14,165,233,0.5);
+    }
+    header p {
+      color: #38bdf8;
+      margin-top: 10px;
     }
     section {
-      padding: 40px 20px;
+      padding: 50px 20px;
       max-width: 1100px;
       margin: auto;
     }
     .project {
-      margin-bottom: 60px;
+      margin-bottom: 70px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(56,189,248,0.1);
+      border-radius: 16px;
+      padding: 25px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 25px rgba(0,0,0,0.6);
     }
     .project h2 {
-      border-bottom: 2px solid #334155;
+      border-bottom: 2px solid rgba(56,189,248,0.2);
       padding-bottom: 10px;
+      color: #38bdf8;
     }
     .gallery {
       display: grid;
@@ -46,15 +60,18 @@
       transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
     }
     .gallery img:hover {
-      transform: scale(1.07);
-      filter: brightness(1.1) contrast(1.05);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+      transform: scale(1.08);
+      filter: brightness(1.2) contrast(1.1);
+      box-shadow: 0 0 20px rgba(56,189,248,0.6);
     }
     .gallery video {
       grid-column: 1 / -1;
       width: 100%;
       border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+      box-shadow: 0 0 30px rgba(14,165,233,0.4);
+    }
+    .full-row {
+      grid-column: 1 / -1;
     }
     .description {
       margin-top: 20px;
@@ -62,10 +79,11 @@
     }
     footer {
       text-align: center;
-      padding: 20px;
-      background: #020617;
+      padding: 25px;
+      background: #000;
       font-size: 0.9rem;
       color: #94a3b8;
+      border-top: 1px solid rgba(56,189,248,0.1);
     }
     .collab-link {
       display:flex;
@@ -78,7 +96,7 @@
       transition:all 0.25s ease;
     }
     .collab-link:hover {
-      background: rgba(255,255,255,0.05);
+      background: rgba(56,189,248,0.1);
       transform: translateY(-2px);
     }
     .collab-link img {
@@ -106,32 +124,34 @@
       border-radius:999px;
       vertical-align:middle;
     }
+
     /* Lightbox */
-  .lightbox {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.9);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-  }
-  .lightbox img {
-    max-width: 90%;
-    max-height: 90%;
-    transition: transform 0.3s ease;
-    cursor: zoom-in;
-  }
-  .lightbox img.zoomed {
-    transform: scale(1.5);
-    cursor: zoom-out;
-  }
-  .lightbox.active {
-    display: flex;
-  }
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      transition: transform 0.3s ease;
+      cursor: zoom-in;
+      box-shadow: 0 0 40px rgba(56,189,248,0.4);
+    }
+    .lightbox img.zoomed {
+      transform: scale(1.5);
+      cursor: zoom-out;
+    }
+    .lightbox.active {
+      display: flex;
+    }
 </style>
 </head>
 <body>
@@ -212,7 +232,7 @@
     <img src="climb2.png" onclick="openLightbox(this.src)">
     <img src="climb3.png" onclick="openLightbox(this.src)">
     <img src="climb4.png" onclick="openLightbox(this.src)">
-    <img src="climb5.png" onclick="openLightbox(this.src)">
+    <img src="climb5.png" class="full-row" onclick="openLightbox(this.src)">
     <video controls>
       <source src="Climb3D.mp4" type="video/mp4">
     </video>
@@ -255,6 +275,20 @@
 </section>
 
 <footer>
+  <div style="display:flex; justify-content:center; gap:25px; margin-bottom:10px;">
+    <a href="mailto:javedbarcha@gmail.com" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="24">
+    </a>
+    <a href="https://github.com/javedbarcha" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" width="24">
+    </a>
+    <a href="https://www.linkedin.com/in/javedbarcha" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="24">
+    </a>
+    <a href="tel:+923453527675" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" width="24">
+    </a>
+  </div>
   <p>© 2026 Javed Ur Rehman | Interactive Simulation Portfolio</p>
 </footer>
 
